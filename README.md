@@ -17,6 +17,8 @@ The script has several options including:
 
 Example gears:
 
+24 tooth gear with 24 diametral pitch, holes enabled
 ![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/Examples/Gear24.png "24 tooth gear")
 
+48 tooth gear with 24 diametral pitch, holes enabled
 ![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/Examples/Gear48.png "48 tooth gear")
