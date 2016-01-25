@@ -26,4 +26,5 @@ Example gears:
 **24 tooth gear, 24 diametral pitch, major and minor holes enabled**
 
 ![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/Examples/Gear48.png "48 tooth gear")
+
 **48 tooth gear, 24 diametral pitch, major and minor holes enabled**
