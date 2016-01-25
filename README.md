@@ -17,6 +17,6 @@ The script has several options including:
 
 Example gears:
 
-![alt text](https://https://github.com/mseminatore/mdsSpurGear/Examples/Gear24.png "24 tooth gear")
+![alt text](https://https://github.com/mseminatore/mdsSpurGear/blob/master/Examples/Gear24.png "24 tooth gear")
 
-![alt text](https://https://github.com/mseminatore/mdsSpurGear/Examples/Gear48.png "48 tooth gear")
+![alt text](https://https://github.com/mseminatore/mdsSpurGear/blob/master/Examples/Gear48.png "48 tooth gear")
