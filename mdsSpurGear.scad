@@ -17,7 +17,7 @@ mdsSpurGear(teeth = 24);
 //
 //
 //
-module mdsSpurGear(teeth = 24, diametral_pitch = 24, pressure_angle = 20, shaft_dia = 0.125, thickness = 0.125, major_holes = true, minor_holes = true, num_holes = 4, debug_echo = false) {
+module mdsSpurGear(teeth = 24, diametral_pitch = 24, pressure_angle = 20, shaft_dia = 0.125, thickness = 0.125, major_holes = true, minor_holes = true, num_holes = 4, hub_thickness = 1.25, debug_echo = false) {
 
     // calculate basic gear parameters
     pitch_dia   = teeth / diametral_pitch;
@@ -44,8 +44,14 @@ module mdsSpurGear(teeth = 24, diametral_pitch = 24, pressure_angle = 20, shaft_
         echo(r_mid_point = r_mid_point);
     }
     
-    linear_extrude(height = thickness)
+    // draw rim if present
+    linear_extrude(height = hub_thickness * thickness)
     union() {
+        difference() {
+            circle($fn = teeth*3, d = root_dia);
+            circle($fn = teeth*3, d = 0.9 * root_dia);
+        }
+        
         pitch_to_base_angle = involuteIntersectionAngle( base_radius, pitch_radius );
         outer_to_base_angle = involuteIntersectionAngle( base_radius, outer_radius );
         
@@ -53,7 +59,8 @@ module mdsSpurGear(teeth = 24, diametral_pitch = 24, pressure_angle = 20, shaft_
         
         base_angle = pitch_to_base_angle + half_angle;
         
-        echo(half_angle=half_angle,pitch_to_base_angle=pitch_to_base_angle,base_angle=base_angle);
+        if (debug_echo)
+            echo(half_angle=half_angle,pitch_to_base_angle=pitch_to_base_angle,base_angle=base_angle);
 
         // draw teeth
         for (i = [1 : teeth]) {
@@ -74,8 +81,14 @@ module mdsSpurGear(teeth = 24, diametral_pitch = 24, pressure_angle = 20, shaft_
             
             rotate([0, 0, i * 360 / teeth])
             polygon([b1, p1, o1, o2, p2, b2]);
-        }
-        
+        }        
+    }
+    
+    // draw the main disc
+    translate([0, 0, (hub_thickness * thickness - thickness)/2])
+    linear_extrude(height = thickness)
+    union() {
+       
         difference() {
             // draw root circle
             circle($fn = teeth*3, d = root_dia);
@@ -91,7 +104,7 @@ module mdsSpurGear(teeth = 24, diametral_pitch = 24, pressure_angle = 20, shaft_
                 for (i = [1 : num_holes]) {
                     rotate([0, 0, i * angle_inc])
                     translate([r_mid_point, 0, 0])
-                    circle(d = r_mid_point);
+                    circle(d = 0.85 * r_mid_point);
                 }
             }
             
@@ -103,7 +116,7 @@ module mdsSpurGear(teeth = 24, diametral_pitch = 24, pressure_angle = 20, shaft_
                 inner_minor_dia = r_mid_point / 4;
                 inner_minor_ctr = r_mid_point / 3;
                 outer_minor_dia = r_mid_point / 2;
-                outer_minor_ctr = 4 * r_mid_point / 3;
+                outer_minor_ctr = r_mid_point * 1.2;
                 
                 for (i = [1 : num_holes]) {
                     rotate([0, 0, i * angle_inc + angle_inc / 2]) {
