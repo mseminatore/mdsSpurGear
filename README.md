@@ -14,6 +14,7 @@ The script has several options including:
 6. Major holes
 7. Minor holes
 8. Number of holes
+9. Hub thickness
 
 Example gears:
 
