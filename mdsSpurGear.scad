@@ -11,18 +11,8 @@
 
 $fs = 0.01;
 
-// compute center distance for 24/48 gears
-cd1 = (24 + 48) / (2 * 24);
-cd2 = (24 + 12) / (2 * 24);
-
-// Example 24 tooth gear with default options
-mdsSpurGear(teeth = 24, minor_holes=false);
-
-translate([1.1 * cd1, 0, 0])
-    mdsSpurGear(teeth = 48);
-
-translate([-cd2 * 1.2, 0, 0])
-    mdsSpurGear(teeth = 12, major_holes=false);
+// Create a gear with all default options
+mdsSpurGear();
 
 //
 //

@@ -8,7 +8,7 @@ The script has several options including:
 
 1. Number of teeth
 2. Diametral pitch
-3. Pressure angle
+3. Pressure angle (*default is 20*)
 4. Shaft diameter
 5. Gear thickness
 6. Major holes (*default is on*)
@@ -29,3 +29,7 @@ Example gears:
 ![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/Examples/Gear48.png "48 tooth gear")
 
 **48 tooth gear, 24 diametral pitch, major and minor holes enabled**
+
+## Notes
+
+If you use a hub thickness ratio of greater than 1.0 you will need to consider printing with supports.
