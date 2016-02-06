@@ -11,10 +11,10 @@ The script has several options including:
 3. Pressure angle
 4. Shaft diameter
 5. Gear thickness
-6. Major holes
-7. Minor holes
-8. Number of holes
-9. Hub thickness
+6. Major holes (*default is on*)
+7. Minor holes (*default is on*)
+8. Number of holes (*default is 4*)
+9. Hub thickness (*default is no hub*)
 
 Example gears:
 
