@@ -26,7 +26,7 @@ module mdsSpurGear(
         major_holes = true, 
         minor_holes = true, 
         num_holes = 4, 
-        smooth_teeth = true, 
+        smooth_teeth = false, 
         hub_thickness_ratio = 1,
         debug_echo = false
     ) 
