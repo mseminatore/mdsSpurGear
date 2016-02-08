@@ -11,15 +11,27 @@
 
 $fs = 0.01;
 
-// Create a gear with all default options
-mdsSpurGear();
+// Create an example gear with all default options
+mdsSpurGear(smooth_teeth = true);
 
 //
 //
 //
-module mdsSpurGear(teeth = 24, diametral_pitch = 24, pressure_angle = 20, shaft_dia = 0.125, thickness = 0.125, major_holes = true, minor_holes = true, num_holes = 4, hub_thickness_ratio = 1, debug_echo = false) {
-
-    // calculate basic gear parameters
+module mdsSpurGear(
+        teeth = 24, 
+        diametral_pitch = 24, 
+        pressure_angle = 20, 
+        shaft_dia = 0.125, 
+        thickness = 0.125, 
+        major_holes = true, 
+        minor_holes = true, 
+        num_holes = 4, 
+        smooth_teeth = true, 
+        hub_thickness_ratio = 1,
+        debug_echo = false
+    ) 
+{
+    // calculate some of the basic basic gear parameters
     pitch_dia   = teeth / diametral_pitch;
     pitch_radius = pitch_dia / 2;
     
@@ -65,22 +77,42 @@ module mdsSpurGear(teeth = 24, diametral_pitch = 24, pressure_angle = 20, shaft_
         // draw teeth
         for (i = [1 : teeth]) {
             
-            // pitch_angle = 
-            
             // coordinates of tooth base
             b1 = fromPolar(root_radius, base_angle);
             b2 = fromPolar(root_radius, -base_angle);
 
             // coordinates of tooth at pitch diameter
             p1 = b1 + fromPolar(dedendum, pitch_to_base_angle);
-            p2 = b2 + fromPolar(dedendum, pitch_to_base_angle);
+            p2 = b2 + fromPolar(dedendum, -pitch_to_base_angle);
             
             // coordinates of tooth at outer diameter
             o1 = p1 + fromPolar(addendum, -pressure_angle);
             o2 = p2 + fromPolar(addendum, pressure_angle);
             
-            rotate([0, 0, i * 360 / teeth])
-            polygon([b1, p1, o1, o2, p2, b2]);
+            rotate([0, 0, i * 360 / teeth]) {
+                if (smooth_teeth) {
+                    // eight seems to work best in most cases
+                    pointCount = 8;
+                    
+                    curve1 = bezierCurve(b1, p1, o1, n = pointCount);
+                    curve2 = bezierCurve(b2, p2, o2, n = pointCount);
+    
+                    // join the two curves into a tooth profile
+                    points = concat(curve1, curve2);
+                    
+                    // create indices for the two tooth 
+                    seq1 = sequence(0, pointCount);
+                    seq2 = sequence(2 * pointCount + 1, pointCount + 1);
+
+                    path = concat(seq1, seq2);
+
+                    polygon(points, paths=[path], convexity=10);
+                } else
+                {
+                    p = [b1, p1, o1, o2, p2, b2];
+                    polygon(p);
+                }
+            }
         }        
     }
     
@@ -98,7 +130,9 @@ module mdsSpurGear(teeth = 24, diametral_pitch = 24, pressure_angle = 20, shaft_
             
             // draw major holes
             if (major_holes && r_mid_point >= 0.125) {
-                echo("Draw major holes");
+                if (debug_echo)
+                    echo("Draw major holes");
+                
                 angle_inc = 360 / num_holes;
                 
                 for (i = [1 : num_holes]) {
@@ -110,7 +144,9 @@ module mdsSpurGear(teeth = 24, diametral_pitch = 24, pressure_angle = 20, shaft_
             
             // draw minor hollows
             if (minor_holes && r_mid_point >= 0.25) {
-                echo("Draw minor holes");
+                if (debug_echo)                
+                    echo("Draw minor holes");
+                
                 angle_inc = 360 / num_holes;
 
                 inner_minor_dia = r_mid_point / 4;
@@ -137,8 +173,19 @@ module mdsSpurGear(teeth = 24, diametral_pitch = 24, pressure_angle = 20, shaft_
     }
 }
 
-//
+// Generate a linear sequence from [start..finish]
+function sequence(start, finish) = [for (i = [start : finish > start ? 1 : -1 :finish] ) i];
+    
+// Compute the involute angle
 function involuteIntersectionAngle(base_radius, radius) = sqrt( pow(radius / base_radius,2) - 1);
 
-//
+// Convert from polar to cartesian coordinates
 function fromPolar(r, theta) = [r * cos(theta), r * sin(theta)];
+
+// Return N [x,y] points on the bezier curve that goes through Px
+function bezierCurve(p0, p1, p2, n=10) =[
+    for (i = [0 : n]) bezierPoint(p0, 2 * p1 - p0/2 - p2/2, p2, i * 1 / n)
+];
+    
+// Calculate a point P at location t along the bezier curve going through points p0, p1, p2
+function bezierPoint(p0, p1, p2, t) = p2 * pow(t, 2) + p1 * 2 * t * (1 - t) + p0 * pow((1 - t), 2);
