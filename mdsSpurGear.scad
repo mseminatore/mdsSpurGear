@@ -34,7 +34,7 @@ module mdsSpurGear(
     ) 
 {
     // calculate some of the basic basic gear parameters
-    pitch_dia   = teeth / diametral_pitch;
+    pitch_dia    = pitchDiameter(teeth, diametral_pitch);
     pitch_radius = pitch_dia / 2;
     
     addendum = 1 / diametral_pitch;
@@ -54,7 +54,7 @@ module mdsSpurGear(
     r_mid_point = root_radius / 2 + shaft_dia / 4;
    
     if (debug_echo) {
-        echo(root_dia=root_dia,base_dia=base_dia,pitch_dia=pitch_dia,outer_dia=outer_dia,whole_depth=whole_depth, addendum=addendum,dedendum=dedendum);
+        echo(root_dia = root_dia, base_dia = base_dia, pitch_dia = pitch_dia, outer_dia = outer_dia, whole_depth = whole_depth, addendum = addendum, dedendum = dedendum);
         echo(r_mid_point = r_mid_point);
     }
     
@@ -86,6 +86,11 @@ module mdsSpurGear(
             // coordinates of tooth at pitch diameter
             p1 = b1 + fromPolar(dedendum, pitch_to_base_angle);
             p2 = b2 + fromPolar(dedendum, -pitch_to_base_angle);
+
+            // TODO - dp _should_ equal t here, figure out error
+//            t = toothThickness();
+//            dp = p1 - p2;
+//            echo(t=t, dp = dp);
             
             // coordinates of tooth at outer diameter
             o1 = p1 + fromPolar(addendum, -pressure_angle);
