@@ -9,6 +9,8 @@
 //===================================================================================
 //
 
+use <utility.scad>
+
 $fs = 0.01;
 
 // Create an example gear with all default options
@@ -172,20 +174,3 @@ module mdsSpurGear(
         }
     }
 }
-
-// Generate a linear sequence from [start..finish]
-function sequence(start, finish) = [for (i = [start : finish > start ? 1 : -1 :finish] ) i];
-    
-// Compute the involute angle
-function involuteIntersectionAngle(base_radius, radius) = sqrt( pow(radius / base_radius,2) - 1);
-
-// Convert from polar to cartesian coordinates
-function fromPolar(r, theta) = [r * cos(theta), r * sin(theta)];
-
-// Return N [x,y] points on the bezier curve that goes through Px
-function bezierCurve(p0, p1, p2, n=10) =[
-    for (i = [0 : n]) bezierPoint(p0, 2 * p1 - p0/2 - p2/2, p2, i * 1 / n)
-];
-    
-// Calculate a point P at location t along the bezier curve going through points p0, p1, p2
-function bezierPoint(p0, p1, p2, t) = p2 * pow(t, 2) + p1 * 2 * t * (1 - t) + p0 * pow((1 - t), 2);
