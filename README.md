@@ -31,6 +31,10 @@ Images of Example gears:
 
 **48 tooth gear, 24 diametral pitch, major and minor holes enabled**
 
+![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/Examples/Stacked Gear.png "Stacked gear")
+
+**10 tooth gear stacked on a 48 tooth gear, 24 diametral pitch, major and minor holes enabled**
+
 ## Release Notes
 
 1. If you use a hub thickness ratio of greater than 1.0 you will need to consider printing with supports.

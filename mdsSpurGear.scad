@@ -1,5 +1,5 @@
 //===================================================================================
-// Parameteric Spur Gear SCAD script
+// Parameteric Spur Gear OpenSCAD script
 //
 // Based on Boston Gear design rules https://www.bostongear.com/pdf/gear_theory.pdf
 //
