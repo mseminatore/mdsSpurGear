@@ -39,6 +39,10 @@ The script has several options including:
 
 **2D Projection of a 24 tooth gear, 24 diametral pitch, major and minor holes enabled**
 
+![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/images/GearVariations.png "Gear varieties")
+
+**Various gear designs**
+
 ## Release Notes
 
 1. If you use a hub thickness ratio of greater than 1.0 you __will__ need to consider printing with supports.
