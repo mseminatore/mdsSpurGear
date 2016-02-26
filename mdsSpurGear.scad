@@ -1,5 +1,5 @@
 //===================================================================================
-// Parameteric Spur Gear OpenSCAD script
+// Parametric Involute Spur Gear OpenSCAD script
 //
 // Based on Boston Gear design rules https://www.bostongear.com/pdf/gear_theory.pdf
 //
@@ -62,8 +62,8 @@ module mdsSpurGear(
     linear_extrude(height = hub_thickness_ratio * thickness)
     union() {
         difference() {
-            circle($fn = teeth*3, d = root_dia);
-            circle($fn = teeth*3, d = 0.9 * root_dia);
+            circle($fn = teeth * 3, d = root_dia);
+            circle($fn = teeth * 3, d = 0.9 * root_dia);
         }
         
         pitch_to_base_angle = involuteIntersectionAngle( base_radius, pitch_radius );
@@ -112,7 +112,6 @@ module mdsSpurGear(
                     seq2 = sequence(2 * pointCount + 1, pointCount + 1);
 
                     path = concat(seq1, seq2);
-
                     polygon(points, paths=[path], convexity=10);
                 } else
                 {
