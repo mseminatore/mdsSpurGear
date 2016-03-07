@@ -3,7 +3,7 @@
 //
 // Based on Boston Gear design rules https://www.bostongear.com/pdf/gear_theory.pdf
 //
-// Copyright (c) 2016 Mark David Seminatore
+// Copyright (c) 2016 Mark Seminatore
 //
 // Refer to included LICENSE.txt for usage rights and restrictions
 //===================================================================================
