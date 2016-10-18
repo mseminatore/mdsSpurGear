@@ -1,3 +1,4 @@
+//!OpenSCAD
 //===================================================================================
 // Parametric Involute Spur Gear OpenSCAD script
 //

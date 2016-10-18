@@ -49,3 +49,4 @@ The script has several options including:
 2. The new *experimental* **smooth_teeth** option generates a bezier curve rather than a simple polygon for the tooth profile.
 3. Unless you need to change the **diametral_pitch** to match a mating gear the default option is a good choice.
 4. The tooth thickness seems to be incorrect.  It appears to be smaller by a few thousandths, investigating.
+5. Added !OpenSCAD comment for OpenJSCAD compat
