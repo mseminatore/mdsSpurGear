@@ -31,6 +31,7 @@ function sequence(start, finish) {
 	for (i = start; i <= finish; i += inc) {
 		points[i] = i;
 	}
+	return points;
 }
     
 // Compute the involute angle
