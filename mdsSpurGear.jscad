@@ -1,6 +1,5 @@
-//!OpenSCAD
 //===================================================================================
-// Parametric Involute Spur Gear OpenSCAD script
+// Parametric Involute Spur Gear OpenJSCAD script
 //
 // Based on Boston Gear design rules https://www.bostongear.com/pdf/gear_theory.pdf
 //
@@ -10,17 +9,19 @@
 //===================================================================================
 //
 
-use <utility.scad>
+include("utility.scad");
 
-$fs = 0.01;
+//$fs = 0.01;
 
 // Create an example gear with all default options
-mdsSpurGear(smooth_teeth = true);
+function main() {
+	return mdsSpurGear({smooth_teeth : true});
+}
 
 //
 //
 //
-module mdsSpurGear(
+function mdsSpurGear(
         teeth = 24, 
         diametral_pitch = 24, 
         pressure_angle = 20, 
