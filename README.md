@@ -17,7 +17,7 @@ The script has several options including:
 9. Hub thickness ratio (*default is __1.0__ which means __no hub__*)
 10. Smooth teeth (Experimental so *default is __off__*)
 
-##Example images of various gears
+## Example images of various gears
 
 ![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/images/Gear24.png "24 tooth gear")
 
