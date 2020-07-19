@@ -1,0 +1,8 @@
+title: mdsSpurGear
+description: OpenSCAD script for parametric spur gear generation.  Based on Boston Gear design rules.
+google_analytics: UA-53302501-2
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
