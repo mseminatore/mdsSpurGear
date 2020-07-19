@@ -23,23 +23,23 @@ The script has several customizable parameterization options including:
 
 **24 tooth gear, 24 diametral pitch, major holes enabled**
 
-![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/images/Gear24minor.png "24 tooth gear")
+![alt text](https://mseminatore.github.io/mdsSpurGear/images/Gear24minor.png "24 tooth gear")
 
 **24 tooth gear, 24 diametral pitch, major and minor holes enabled**
 
-![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/images/Gear48.png "48 tooth gear")
+![alt text](https://mseminatore.github.io/mdsSpurGear/images/Gear48.png "48 tooth gear")
 
 **48 tooth gear, 24 diametral pitch, major and minor holes enabled**
 
-![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/images/StackedGear.png "Stacked gear")
+![alt text](https://mseminatore.github.io/mdsSpurGear/images/StackedGear.png "Stacked gear")
 
 **10 tooth gear stacked on a 48 tooth gear, 24 diametral pitch, major and minor holes enabled**
 
-![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/images/Gear2D.png "2D Gear")
+![alt text](https://mseminatore.github.io/mdsSpurGear/images/Gear2D.png "2D Gear")
 
 **2D Projection of a 24 tooth gear, 24 diametral pitch, major and minor holes enabled**
 
-![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/images/GearVariations.png "Gear varieties")
+![alt text](https://mseminatore.github.io/mdsSpurGear/images/GearVariations.png "Gear varieties")
 
 **Various gear designs**
 
