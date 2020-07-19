@@ -41,7 +41,9 @@ The script has several customizable parameterization options including:
 
 ![alt text](https://mseminatore.github.io/mdsSpurGear/images/GearVariations.png "Gear varieties")
 
-**Various gear designs**
+**Collection of gear designs**
+
+You can view additional examples at [Thingiverse.com](http://thingiverse.com/mseminatore/designs)
 
 ## Release Notes
 
