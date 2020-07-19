@@ -19,7 +19,7 @@ The script has several customizable parameterization options including:
 
 ## Example images of various gears
 
-![24 tooth gear](https://github.com/mseminatore/mdsSpurGear/blob/gh-pages/images/Gear24.png "24 tooth gear")
+![24 tooth gear](https://mseminatore.github.io/mdsSpurGear/images/Gear24.png "24 tooth gear")
 
 **24 tooth gear, 24 diametral pitch, major holes enabled**
 
