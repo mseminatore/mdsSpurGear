@@ -17,6 +17,36 @@ The script has several customizable parameterization options including:
 9. Hub thickness ratio (*default is __1.0__ which means __no hub__*)
 10. Smooth teeth (Experimental so *default is __off__*)
 
-![Example gears](http://mseminatore.github.io/mdsSpurGear/images/GearVariations.png "Gear examples")
+## Example images of various gears
 
-**Example gear designs**
+![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/images/Gear24.png "24 tooth gear")
+
+**24 tooth gear, 24 diametral pitch, major holes enabled**
+
+![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/images/Gear24minor.png "24 tooth gear")
+
+**24 tooth gear, 24 diametral pitch, major and minor holes enabled**
+
+![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/images/Gear48.png "48 tooth gear")
+
+**48 tooth gear, 24 diametral pitch, major and minor holes enabled**
+
+![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/images/StackedGear.png "Stacked gear")
+
+**10 tooth gear stacked on a 48 tooth gear, 24 diametral pitch, major and minor holes enabled**
+
+![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/images/Gear2D.png "2D Gear")
+
+**2D Projection of a 24 tooth gear, 24 diametral pitch, major and minor holes enabled**
+
+![alt text](https://github.com/mseminatore/mdsSpurGear/blob/master/images/GearVariations.png "Gear varieties")
+
+**Various gear designs**
+
+## Release Notes
+
+1. If you use a hub thickness ratio of greater than 1.0 you __will__ need to consider printing with supports.
+2. The new *experimental* **smooth_teeth** option generates a bezier curve rather than a simple polygon for the tooth profile.
+3. Unless you need to change the **diametral_pitch** to match a mating gear the default option is a good choice.
+4. The tooth thickness seems to be incorrect.  It appears to be smaller by a few thousandths, investigating.
+5. Added !OpenSCAD comment for OpenJSCAD compat
